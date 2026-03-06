@@ -1,0 +1,30 @@
+@import './variables.css';
+@import 'tailwindcss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #110d05;
+  background-image:
+    radial-gradient(ellipse at 30% 0%, #2a1a08 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, #1a1208 0%, transparent 50%);
+  min-height: 100vh;
+  font-family: 'Special Elite', cursive;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
