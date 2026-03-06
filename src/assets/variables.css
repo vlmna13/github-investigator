@@ -1,0 +1,11 @@
+:root {
+  --paper: #f4efe4;
+  --paper-dark: #e8e0cc;
+  --paper-shadow: #c9bfa8;
+  --ink: #1e110a;
+  --ink-faded: #5c4033;
+  --red: #8b1a1a;
+  --red-stamp: #c0392b;
+  --folder: #8b6914;
+  --tape: rgba(255, 230, 100, 0, 0.55);
+}
