@@ -18,12 +18,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useInvestigatorStore } from '@/stores/investigator'
 
 const router = useRouter()
+const store = useInvestigatorStore()
 const username = ref('')
-const onSearch = () => {
+const onSearch = async () => {
   if (!username.value.trim()) return
-  router.push({ name: 'dossier', params: { username: username.value.trim() } })
+  await store.search(username.value.trim())
+  if (!store.error) {
+    router.push({ name: 'dossier', params: { username: username.value.trim() } })
+  }
 }
 </script>
 <style scoped>
