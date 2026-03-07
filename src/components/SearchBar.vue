@@ -11,8 +11,11 @@
           placeholder="Enter GitHub username..."
         />
       </div>
-      <button type="submit">Investigate</button>
+      <button type="submit" :disabled="store.isLoading">
+        {{ store.isLoading ? 'Investigating...' : 'Investigate' }}
+      </button>
     </form>
+    <p v-if="store.error" class="error-text">{{ store.error }}</p>
   </div>
 </template>
 <script setup lang="ts">
@@ -24,10 +27,11 @@ const router = useRouter()
 const store = useInvestigatorStore()
 const username = ref('')
 const onSearch = async () => {
-  if (!username.value.trim()) return
-  await store.search(username.value.trim())
+  const wanted = username.value.trim()
+  if (!wanted) return
+  await store.search(wanted)
   if (!store.error) {
-    router.push({ name: 'dossier', params: { username: username.value.trim() } })
+    router.push({ name: 'dossier', params: { username: wanted } })
   }
 }
 </script>
@@ -90,6 +94,12 @@ button {
   white-space: nowrap;
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 button:hover {
   transform: translate(-1px, -1px);
   box-shadow: 5px 5px 0 #5a0f0f;
@@ -97,5 +107,15 @@ button:hover {
 button:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 #5a0f0f;
+}
+
+.error-text {
+  color: var(--red);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 12px;
+  font-style: italic;
 }
 </style>
