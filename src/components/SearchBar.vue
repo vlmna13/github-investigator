@@ -4,14 +4,27 @@
     <form @submit.prevent="onSearch" class="flex gap-4">
       <div class="grow relative">
         <span class="search-icon">🔎</span>
-        <input id="search-input" type="text" placeholder="Enter GitHub username..." />
+        <input
+          v-model="username"
+          id="search-input"
+          type="text"
+          placeholder="Enter GitHub username..."
+        />
       </div>
       <button type="submit">Investigate</button>
     </form>
   </div>
 </template>
 <script setup lang="ts">
-const onSearch = () => {}
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const username = ref('')
+const onSearch = () => {
+  if (!username.value.trim()) return
+  router.push({ name: 'dossier', params: { username: username.value.trim() } })
+}
 </script>
 <style scoped>
 .search-section {
