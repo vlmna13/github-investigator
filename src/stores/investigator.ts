@@ -30,5 +30,5 @@ export const useInvestigatorStore = defineStore('investigator', () => {
     }
     isLoading.value = false
   }
-  return {currentUser, currentRepos, isLoading, error, history, search}
+  return { currentUser, currentRepos, isLoading, error, history, search }
 })
