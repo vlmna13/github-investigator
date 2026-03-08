@@ -7,7 +7,7 @@ const { fetchUser, fetchRepos } = useGitHub()
 
 export const useInvestigatorStore = defineStore('investigator', () => {
   const currentUser = ref<GitHubUser | null>(null)
-  const currentRepos = ref<GitHubRepo[] | null>([])
+  const currentRepos = ref<GitHubRepo[]>([])
   const isLoading = ref<boolean>(false)
   const error = ref<string | null>(null)
   const history = ref<GitHubUser[]>([])
@@ -23,7 +23,7 @@ export const useInvestigatorStore = defineStore('investigator', () => {
     }
     const repos = await fetchRepos(username)
     currentUser.value = user
-    currentRepos.value = repos
+    currentRepos.value = repos ?? []
     const alreadyInHistory = history.value.find((wanted) => wanted.login === user.login)
     if (!alreadyInHistory) {
       history.value.push(user)
