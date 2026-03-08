@@ -11,10 +11,12 @@
         {{ getClassification(props.user.followers) }}
       </p>
       <div class="profile-layout">
-        <figure class="photo-frame">
-          <img :src="props.user.avatar_url" :alt="props.user.login" />
-          <figcaption class="photo-label">Suspect Photo</figcaption>
-        </figure>
+        <a :href="props.user.html_url" target="_blank" rel="noopener noreferrer">
+          <figure class="photo-frame">
+            <img :src="props.user.avatar_url" :alt="props.user.login" />
+            <figcaption class="photo-label">Suspect Photo</figcaption>
+          </figure>
+        </a>
         <div>
           <dl class="fields">
             <div class="field" v-for="field in fields" :key="field.label">
@@ -148,12 +150,20 @@ const fields = computed(() => [
   margin-top: 6px;
 }
 
+.photo-frame:hover img {
+  transform: scale(1.03) rotate(1deg);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
 img {
   width: 138px;
   height: 138px;
   object-fit: cover;
   border: 3px solid var(--ink);
   box-shadow: 3px 3px 0 var(--ink-faded);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   display: block;
 }
 
