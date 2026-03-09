@@ -14,6 +14,14 @@ import { useInvestigatorStore } from '@/stores/investigator'
 const store = useInvestigatorStore()
 </script>
 <style scoped>
+h2 {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
 
 .cork-board {
   background-color: var(--cork);
@@ -27,8 +35,9 @@ const store = useInvestigatorStore()
   box-shadow:
     inset 0 0 40px rgba(0, 0, 0, 0.3),
     0 8px 32px rgba(0, 0, 0, 0.6);
-  padding: 40px 36px;
+  padding: 20px 36px 40px;
   min-height: 400px;
   position: relative;
+  text-align: center;
 }
 </style>
