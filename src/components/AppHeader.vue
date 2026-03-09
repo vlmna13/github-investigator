@@ -1,12 +1,13 @@
 <template>
   <header class="container text-center py-10">
+    <RouterLink to="/archive" class="back-link">🗂 Case Archive</RouterLink>
+
     <p class="header-address">221B Baker Street, London · Est. 1887</p>
-    <p class="header-title">🔍 The GitHub Investigator</p>
+    <h1 class="header-title">🔍 The GitHub Investigator</h1>
     <p class="header-sub">"Elementary, my dear developer."</p>
     <div class="line">
       <span>✦</span>
     </div>
-    <RouterLink to="/archive" class="back-link">🗂 Case Archive</RouterLink>
   </header>
 </template>
 <script setup lang="ts"></script>

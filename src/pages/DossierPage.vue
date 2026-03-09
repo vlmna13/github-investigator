@@ -10,6 +10,21 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import ProfileCard from '@/components/ProfileCard.vue'
+import { useRoute } from 'vue-router'
+import { useInvestigatorStore } from '@/stores/investigator'
+import { onMounted } from 'vue'
+import EvidenceGrid from '@/components/EvidenceGrid.vue'
+
+const route = useRoute()
+const store = useInvestigatorStore()
+
+onMounted(async () => {
+  await store.search(route.params.username as string)
+})
+</script>
+
 <style scoped>
 .nav-links {
   display: flex;
@@ -26,18 +41,3 @@
   letter-spacing: 2px;
 }
 </style>
-
-<script setup lang="ts">
-import ProfileCard from '@/components/ProfileCard.vue'
-import { useRoute } from 'vue-router'
-import { useInvestigatorStore } from '@/stores/investigator'
-import { onMounted } from 'vue'
-import EvidenceGrid from '@/components/EvidenceGrid.vue'
-
-const route = useRoute()
-const store = useInvestigatorStore()
-
-onMounted(async () => {
-  await store.search(route.params.username as string)
-})
-</script>
