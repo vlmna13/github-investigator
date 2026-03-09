@@ -119,7 +119,7 @@ const rotation = (Math.random() * 6 - 3).toFixed(1)
 }
 
 .suspect-login {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 2px;
   color: var(--ink-faded);
   text-transform: uppercase;

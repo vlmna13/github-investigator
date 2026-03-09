@@ -1,11 +1,11 @@
 <template>
   <div class="page">
-    <div class="not-found-card">
+    <div class="not-found-card paper-card">
       <div class="tape"></div>
       <div class="stamp">not found</div>
       <p class="case-no">Case No. ERROR-404 · Status: Unsolved · Classification: Unknown</p>
       <h1>The suspect has vanished, Watson.</h1>
-      <p class="not-found-sub">
+      <p class="not-found-sub serif-italic">
         "This page does not exist, or has been classified beyond our clearance level. Even the best
         detective cannot investigate what isn't there."
       </p>
@@ -13,7 +13,7 @@
         <p class="chuck-label">— Consulting a higher authority —</p>
         <img src="https://api.chucknorris.io/img/avatar/chuck-norris.png" alt="Chuck Norris" />
         <p class="chuck-joke">{{ isLoading ? 'Consulting Chuck Norris...' : joke }}</p>
-        <button class="chuck-btn" @click="onFetchJoke">🥋 Ask Chuck Norris</button>
+        <button class="chuck-btn btn-red" :disabled="isLoading" @click="onFetchJoke">🥋 Ask Chuck Norris</button>
       </div>
     </div>
   </div>
@@ -52,36 +52,19 @@ onMounted(() => onFetchJoke())
 .page {
   max-width: 640px;
   width: 100%;
+  margin: 0 auto;
   text-align: center;
 }
 
-.not-found-card {
-  background: var(--paper);
-  padding: 50px 40px 40px;
-  position: relative;
-  box-shadow:
-    6px 6px 0 var(--paper-shadow),
-    14px 14px 0 rgba(0, 0, 0, 0.35);
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 27px,
-    rgba(44, 24, 16, 0.055) 27px,
-    rgba(44, 24, 16, 0.055) 28px
-  );
-  margin-bottom: 24px;
+.chuck-section {
+  border-top: 1px dashed var(--paper-shadow);
+  padding-top: 24px;
+  margin-top: 4px;
 }
 
-.tape {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 76px;
-  height: 20px;
-  background: rgba(255, 230, 100, 0.55);
-  border-left: 1px solid rgba(190, 155, 40, 0.3);
-  border-right: 1px solid rgba(190, 155, 40, 0.3);
+.not-found-card {
+  padding: 50px 40px 40px;
+  margin-bottom: 24px;
 }
 
 .stamp {
@@ -98,15 +81,6 @@ onMounted(() => onFetchJoke())
   line-height: 1;
 }
 
-.case-no {
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--ink-faded);
-  text-transform: uppercase;
-  border-bottom: 1px dashed var(--paper-shadow);
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-}
 
 h1 {
   font-family: 'IM Fell English', serif;
@@ -116,19 +90,12 @@ h1 {
 }
 
 .not-found-sub {
-  font-family: 'IM Fell English', serif;
-  font-style: italic;
   color: var(--ink-faded);
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 28px;
 }
 
-.chuck-section {
-  border-top: 1px dashed var(--paper-shadow);
-  padding-top: 24px;
-  margin-top: 4px;
-}
 
 .chuck-label {
   font-size: 10px;
@@ -152,26 +119,5 @@ img {
 
 .chuck-btn {
   margin-top: 20px;
-  background: var(--red);
-  color: var(--paper);
-  border: none;
-  cursor: pointer;
-  padding: 11px 24px;
-  font-family: 'Special Elite', cursive;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  box-shadow: 4px 4px 0 #5a0f0f;
-  transition: all 0.12s;
-}
-
-.chuck-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 #5a0f0f;
-}
-
-.chuck-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 #5a0f0f;
 }
 </style>
