@@ -17,7 +17,7 @@ export const useGitHub = () => {
   const fetchRepos = async (username: string): Promise<GitHubRepo[] | null> => {
     try {
       const response = await fetch(
-        `https://api.github.com/users/${username}/repos?per_page=10&sort=stars`,
+        `https://api.github.com/users/${username}/repos?per_page=6&sort=stars`,
       )
       if (!response.ok) return null
       const data: GitHubRepo[] = await response.json()

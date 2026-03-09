@@ -6,6 +6,7 @@
     <div class="line">
       <span>✦</span>
     </div>
+    <RouterLink to="/archive" class="back-link">🗂 Case Archive</RouterLink>
   </header>
 </template>
 <script setup lang="ts"></script>
