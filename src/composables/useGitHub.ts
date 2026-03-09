@@ -14,17 +14,17 @@ export const useGitHub = () => {
     }
   }
 
-  const fetchRepos = async (username: string): Promise<GitHubRepo[] | null> => {
+  const fetchRepos = async (username: string): Promise<GitHubRepo[]> => {
     try {
       const response = await fetch(
         `https://api.github.com/users/${username}/repos?per_page=6&sort=stars`,
       )
-      if (!response.ok) return null
+      if (!response.ok) return []
       const data: GitHubRepo[] = await response.json()
       return data
     } catch (error) {
       console.error('Failed to fetch user:', error)
-      return null
+      return []
     }
   }
 

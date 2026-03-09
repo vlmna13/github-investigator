@@ -22,3 +22,8 @@ export interface GitHubRepo {
   html_url: string
   topics: string[]
 }
+
+export interface HistoryEntry {
+  user: GitHubUser
+  verdict: string
+}

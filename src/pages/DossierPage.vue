@@ -11,7 +11,6 @@
 </template>
 
 <style scoped>
-
 .nav-links {
   display: flex;
   justify-content: space-around;
