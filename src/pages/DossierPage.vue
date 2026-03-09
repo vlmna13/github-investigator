@@ -1,8 +1,4 @@
 <template>
-  <div class="nav-links">
-    <RouterLink to="/" class="back-link">← New Investigation</RouterLink>
-    <RouterLink to="/archive" class="back-link">🗂 Case Archive</RouterLink>
-  </div>
   <ProfileCard v-if="store.currentUser" :user="store.currentUser" />
   <EvidenceGrid v-if="store.currentRepos.length" :repos="store.currentRepos" />
   <div v-else class="no-evidence">
@@ -26,11 +22,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.nav-links {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
 
 .no-evidence {
   text-align: center;
