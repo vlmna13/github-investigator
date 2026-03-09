@@ -7,12 +7,14 @@
       </RouterLink>
     </div>
 
-    <p class="header-address">221B Baker Street, London · Est. 1887</p>
-    <h1 class="header-title">{{ title }}</h1>
-    <p class="header-sub">{{ quote }}</p>
-    <div class="line">
-      <span>✦</span>
-    </div>
+    <template v-if="page !== 'not-found'">
+      <p class="header-address">221B Baker Street, London · Est. 1887</p>
+      <h1 class="header-title">{{ title }}</h1>
+      <p class="header-sub">{{ quote }}</p>
+      <div class="line">
+        <span>✦</span>
+      </div>
+    </template>
   </header>
 </template>
 
@@ -21,7 +23,7 @@ import { computed } from 'vue'
 import { useInvestigatorStore } from '@/stores/investigator'
 
 const props = defineProps<{
-  page?: 'home' | 'dossier' | 'archive'
+  page?: 'home' | 'dossier' | 'archive' | 'not-found'
 }>()
 
 const store = useInvestigatorStore()

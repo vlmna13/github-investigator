@@ -22,7 +22,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-
 .no-evidence {
   text-align: center;
   color: var(--ink-faded);

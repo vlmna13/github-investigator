@@ -15,6 +15,7 @@ const route = useRoute()
 const currentPage = computed(() => {
   if (route.name === 'dossier') return 'dossier'
   if (route.name === 'archive') return 'archive'
+  if (route.name === 'not-found') return 'not-found'
   return 'home'
 })
 </script>
