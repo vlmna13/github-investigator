@@ -1,5 +1,5 @@
 <template>
-  <div class="dosier">
+  <div class="dossier">
     <p class="folder-tab">Classified Dossier</p>
     <div class="profile-card paper-card">
       <div class="tape"></div>
@@ -65,7 +65,7 @@ const fields = computed(() => [
   max-width: 860px;
   margin: 0 auto;
   padding: 0 20px 80px;
-  animation: dossierIn 05s ease;
+  animation: dossierIn 0.5s ease;
 }
 
 .folder-tab {
@@ -172,5 +172,38 @@ img {
   color: var(--red);
   border: 1px solid var(--red);
   padding: 3px 8px;
+}
+
+@media (max-width: 640px) {
+  .dossier {
+    padding: 0 12px 48px;
+  }
+
+  .profile-card {
+    padding: 24px 20px 20px;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-frame {
+    margin: 0 auto;
+    width: fit-content;
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .field {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .field-label {
+    margin-bottom: 1px;
+  }
 }
 </style>

@@ -125,4 +125,13 @@ const { getWeapon } = useInvestigator()
   padding: 10px;
   border-top: 1px dashed var(--paper-shadow);
 }
+
+@media (max-width: 480px) {
+  .evidence-header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 12px 16px;
+  }
+}
 </style>

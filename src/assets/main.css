@@ -118,3 +118,15 @@ body {
   cursor: not-allowed;
   transform: none;
 }
+
+@media (max-width: 640px) {
+  .container {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+}

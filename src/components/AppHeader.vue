@@ -102,4 +102,12 @@ span {
   color: #f0e2c0;
   border-color: #f0e2c0;
 }
+
+@media (max-width: 480px) {
+  .back-link {
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+  }
+}
 </style>

@@ -120,4 +120,15 @@ img {
 .chuck-btn {
   margin-top: 20px;
 }
+
+@media (max-width: 480px) {
+  .not-found-card {
+    padding: 40px 20px 28px;
+  }
+
+  .stamp {
+    font-size: 26px;
+    padding: 8px 18px;
+  }
+}
 </style>

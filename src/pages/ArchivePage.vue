@@ -40,4 +40,18 @@ h2 {
   position: relative;
   text-align: center;
 }
+
+@media (max-width: 640px) {
+  .cork-board {
+    padding: 20px 20px 28px;
+    border-width: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cork-board {
+    padding: 16px 12px 24px;
+    border-width: 4px;
+  }
+}
 </style>

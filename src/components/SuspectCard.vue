@@ -126,5 +126,19 @@ const rotation = (Math.random() * 6 - 3).toFixed(1)
   text-align: center;
   background: var(--paper-dark);
   padding: 3px 8px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .suspect-card {
+    width: 140px;
+  }
+
+  .suspect-photo {
+    width: 140px;
+    height: 140px;
+  }
 }
 </style>
