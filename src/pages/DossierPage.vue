@@ -1,32 +1,10 @@
 <template>
-  <div class="nav-links">
-    <RouterLink to="/" class="back-link">← New Investigation</RouterLink>
-    <RouterLink to="/archive" class="back-link">🗂 Case Archive</RouterLink>
-  </div>
   <ProfileCard v-if="store.currentUser" :user="store.currentUser" />
   <EvidenceGrid v-if="store.currentRepos.length" :repos="store.currentRepos" />
   <div v-else class="no-evidence">
     <p>— No evidence on file. All repositories classified. —</p>
   </div>
 </template>
-
-<style scoped>
-
-.nav-links {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.no-evidence {
-  text-align: center;
-  color: var(--ink-faded);
-  font-family: 'IM Fell English', serif;
-  font-style: italic;
-  padding: 40px;
-  letter-spacing: 2px;
-}
-</style>
 
 <script setup lang="ts">
 import ProfileCard from '@/components/ProfileCard.vue'
@@ -42,3 +20,15 @@ onMounted(async () => {
   await store.search(route.params.username as string)
 })
 </script>
+
+<style scoped>
+
+.no-evidence {
+  text-align: center;
+  color: var(--ink-faded);
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  padding: 40px;
+  letter-spacing: 2px;
+}
+</style>
