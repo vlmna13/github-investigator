@@ -28,3 +28,21 @@ body {
   width: 100%;
   margin: 0 auto;
 }
+
+.back-link {
+  display: inline-block;
+  color: var(--ink-faded);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.15s;
+  border: 1px solid var(--ink-faded);
+  padding: 5px;
+}
+
+.back-link:hover {
+  color: var(--paper);
+  border: 1px solid var(--paper);
+}

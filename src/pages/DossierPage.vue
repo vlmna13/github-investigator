@@ -1,5 +1,8 @@
 <template>
-  <RouterLink to="/" class="back-link">← New Investigation</RouterLink>
+  <div class="nav-links">
+    <RouterLink to="/" class="back-link">← New Investigation</RouterLink>
+    <RouterLink to="/archive" class="back-link">🗂 Case Archive</RouterLink>
+  </div>
   <ProfileCard v-if="store.currentUser" :user="store.currentUser" />
   <EvidenceGrid v-if="store.currentRepos.length" :repos="store.currentRepos" />
   <div v-else class="no-evidence">
@@ -8,22 +11,11 @@
 </template>
 
 <style scoped>
-.back-link {
-  display: inline-block;
-  color: var(--ink-faded);
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin-bottom: 20px;
-  transition: color 0.15s;
-  border: 1px solid var(--ink-faded);
-  padding: 5px;
-}
 
-.back-link:hover {
-  color: var(--paper);
-  border: 1px solid var(--paper);
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .no-evidence {
