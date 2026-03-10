@@ -5,7 +5,7 @@
 Every developer leaves a trace. Public repositories. Follower counts. A suspicious commit at 3am.
 The GitHub Investigator finds them all.
 
-🕵️ **[Open the Case Files]()** 
+🕵️ **[Open the Case Files](https://github-investigator-plum.vercel.app/)** 
 
 ---
 
