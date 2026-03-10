@@ -10,7 +10,7 @@
 import ProfileCard from '@/components/ProfileCard.vue'
 import { useRoute } from 'vue-router'
 import { useInvestigatorStore } from '@/stores/investigator'
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 import EvidenceGrid from '@/components/EvidenceGrid.vue'
 
 const route = useRoute()
@@ -24,6 +24,14 @@ onMounted(async () => {
     await store.search(username)
   }
 })
+
+watch(
+  () => route.params.username,
+  async (newUsername) => {
+    const username = Array.isArray(newUsername) ? newUsername[0] : newUsername
+    if (username) await store.search(username)
+  },
+)
 </script>
 
 <style scoped>

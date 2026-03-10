@@ -10,7 +10,7 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/investigator/:username',
+      path: '/investigator/:username([a-zA-Z0-9-]+)',
       name: 'dossier',
       component: () => import('../pages/DossierPage.vue'),
     },
