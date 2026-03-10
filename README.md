@@ -1,48 +1,64 @@
-# github-investigator
+# 🔍 The GitHub Investigator
 
-This template should help get you started developing with Vue 3 in Vite.
+> *"When you have eliminated the impossible, whatever remains, however improbable, must be a GitHub profile."*
 
-## Recommended IDE Setup
+Every developer leaves a trace. Public repositories. Follower counts. A suspicious commit at 3am.
+The GitHub Investigator finds them all.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+🕵️ **[Open the Case Files]()** 
 
-## Recommended Browser Setup
+---
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## The Investigation
 
-## Type Support for `.vue` Imports in TS
+Submit a GitHub username. Receive a full classified dossier:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Suspect Dossier** — identity confirmed, case number assigned, threat level classified
+- **Evidence Locker** — top 6 repositories examined, weapons of choice profiled
+- **Case Archive** — cork board of all previously investigated suspects
+- **Unsolved Cases** — even Watson couldn't find this page
 
-## Customize configuration
+## Intelligence Sources
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- [Vue 3](https://vuejs.org/) + Composition API — the informant
+- [TypeScript](https://www.typescriptlang.org/) — keeping the evidence typed
+- [Vite](https://vitejs.dev/) — fast getaway vehicle
+- [Pinia](https://pinia.vuejs.org/) — the filing cabinet (with memory)
+- [Vue Router](https://router.vuejs.org/) — navigating the crime scene
+- [Tailwind CSS v4](https://tailwindcss.com/) — disguise kit
+- [GitHub REST API](https://docs.github.com/en/rest) — the informant's informant
 
-## Project Setup
+## Begin the Investigation
 
-```sh
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Field Operations
 
-```sh
-npm run build
+```bash
+npm run build       # Prepare for deployment
+npm run preview     # Rehearse the operation
+npm run lint        # Clean up the evidence
+npm run format      # Press the suit
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Case File Structure
 
-```sh
-npm run lint
 ```
+src/
+├── assets/          # Dossier paper, ink colors, typewriter fonts
+├── components/      # AppHeader, ProfileCard, EvidenceGrid, SearchBar, SuspectCard
+├── composables/     # useGitHub (field agent), useInvestigator (analyst)
+├── pages/           # HomePage, DossierPage, ArchivePage, NotFoundPage
+├── router/          # Case routing
+├── stores/          # Pinia — persistent case archive
+└── types/           # Typed evidence
+```
+
+## Classified Notes
+
+- Operates on the public GitHub API — unauthenticated, 60 requests/hour
+- The case archive survives page reloads via `localStorage`
+- Chuck Norris is consulted on all 404 incidents

@@ -1,0 +1,132 @@
+@import './variables.css';
+@import 'tailwindcss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #110d05;
+  background-image:
+    radial-gradient(ellipse at 30% 0%, #2a1a08 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, #1a1208 0%, transparent 50%);
+  min-height: 100vh;
+  font-family: 'Special Elite', cursive;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--ink-faded);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.15s;
+  border: 1px solid var(--ink-faded);
+  padding: 5px;
+}
+
+.back-link:hover {
+  color: var(--paper);
+  border: 1px solid var(--paper);
+}
+
+.serif-italic {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+}
+
+.case-no {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-faded);
+  text-transform: uppercase;
+  border-bottom: 1px dashed var(--paper-shadow);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 76px;
+  height: 20px;
+  background: var(--tape);
+  border-left: 1px solid rgba(190, 155, 40, 0.3);
+  border-right: 1px solid rgba(190, 155, 40, 0.3);
+}
+
+.paper-card {
+  background: var(--paper);
+  position: relative;
+  box-shadow:
+    6px 6px 0 var(--paper-shadow),
+    14px 14px 0 rgba(0, 0, 0, 0.35);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 27px,
+    rgba(44, 24, 16, 0.055) 27px,
+    rgba(44, 24, 16, 0.055) 28px
+  );
+}
+
+.btn-red {
+  background: var(--red);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+  font-family: 'Special Elite', cursive;
+  font-size: 12px;
+  padding: 12px 22px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--red-shadow);
+  transition: all 0.12s;
+}
+
+.btn-red:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--red-shadow);
+}
+
+.btn-red:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--red-shadow);
+}
+
+.btn-red:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+}
