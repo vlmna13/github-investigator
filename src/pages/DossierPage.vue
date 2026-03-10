@@ -1,9 +1,14 @@
 <template>
-  <ProfileCard v-if="store.currentUser" :user="store.currentUser" />
-  <EvidenceGrid v-if="store.currentRepos.length" :repos="store.currentRepos" />
-  <div v-else class="no-evidence serif-italic">
-    <p>— No evidence on file. All repositories classified. —</p>
+  <div v-if="store.error" class="dossier-error serif-italic">
+    <p>{{ store.error }}</p>
   </div>
+  <template v-else>
+    <ProfileCard v-if="store.currentUser" :user="store.currentUser" />
+    <EvidenceGrid v-if="store.currentRepos.length" :repos="store.currentRepos" />
+    <div v-else-if="store.currentUser" class="no-evidence serif-italic">
+      <p>— No evidence on file. All repositories classified. —</p>
+    </div>
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -40,5 +45,13 @@ watch(
   color: var(--ink-faded);
   letter-spacing: 2px;
   padding: 60px 40px;
+}
+
+.dossier-error {
+  text-align: center;
+  color: var(--red);
+  letter-spacing: 2px;
+  padding: 80px 40px;
+  font-size: 15px;
 }
 </style>

@@ -4,7 +4,7 @@ export const useInvestigator = () => {
   const getClassification = (followers: number): string => {
     if (followers >= 200) return 'Level 4'
     if (followers >= 100 && followers < 200) return 'Level 3'
-    if (followers > 50 && followers < 100) return 'Level 2'
+    if (followers >= 50 && followers < 100) return 'Level 2'
     return 'Level 1'
   }
 
