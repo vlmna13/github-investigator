@@ -15,33 +15,41 @@ const ERROR_MESSAGES: Record<string, string> = {
   SERVER_ERROR: 'GitHub is not cooperating. Try again later.',
 }
 
-export const useInvestigatorStore = defineStore('investigator', () => {
-  const currentUser = ref<GitHubUser | null>(null)
-  const currentRepos = ref<GitHubRepo[]>([])
-  const isLoading = ref<boolean>(false)
-  const error = ref<string | null>(null)
-  const history = ref<HistoryEntry[]>([])
+export const useInvestigatorStore = defineStore(
+  'investigator',
+  () => {
+    const currentUser = ref<GitHubUser | null>(null)
+    const currentRepos = ref<GitHubRepo[]>([])
+    const isLoading = ref<boolean>(false)
+    const error = ref<string | null>(null)
+    const history = ref<HistoryEntry[]>([])
 
-  const search = async (username: string) => {
-    isLoading.value = true
-    error.value = null
-    try {
-      const user = await fetchUser(username)
-      const repos = await fetchRepos(username)
-      currentUser.value = user
-      currentRepos.value = repos
-      const alreadyInHistory = history.value.find((wanted) => wanted.user.login === user.login)
-      if (!alreadyInHistory) {
-        const verdict = getLanguageProfile(repos).verdict
-        history.value.push({ user, verdict })
+    const search = async (username: string) => {
+      isLoading.value = true
+      error.value = null
+      try {
+        const user = await fetchUser(username)
+        const repos = await fetchRepos(username)
+        currentUser.value = user
+        currentRepos.value = repos
+        const alreadyInHistory = history.value.find((wanted) => wanted.user.login === user.login)
+        if (!alreadyInHistory) {
+          const verdict = getLanguageProfile(repos).verdict
+          history.value.push({ user, verdict })
+        }
+      } catch (e) {
+        const code = e instanceof Error ? e.message : ''
+        error.value = ERROR_MESSAGES[code] ?? 'Investigation failed. Try again.'
+      } finally {
+        isLoading.value = false
       }
-    } catch (e) {
-      const code = e instanceof Error ? e.message : ''
-      error.value = ERROR_MESSAGES[code] ?? 'Investigation failed. Try again.'
-    } finally {
-      isLoading.value = false
     }
-  }
 
-  return { currentUser, currentRepos, isLoading, error, history, search }
-})
+    return { currentUser, currentRepos, isLoading, error, history, search }
+  },
+  {
+    persist: {
+      pick: ['history'],
+    },
+  },
+)
