@@ -58,7 +58,7 @@ const fields = computed(() => [
   { label: 'Known Associates', value: `${props.user.followers} followers` },
   {
     label: 'Filed Evidence',
-    value: `${props.user.public_repos} public repos· classified files undisclosed`,
+    value: `${props.user.public_repos} public repos · classified files undisclosed`,
   },
 ])
 </script>

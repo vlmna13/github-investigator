@@ -1,7 +1,7 @@
 <template>
   <div class="cork-board">
     <h2>— Most Wanted Board —</h2>
-    <div class="flex flex-wrap gap-8 justify-start pt-2.5">
+    <div class="cork-wrapper">
       <SuspectCard v-for="entry in store.history" :key="entry.user.login" :entry="entry" />
     </div>
   </div>
@@ -39,6 +39,13 @@ h2 {
   min-height: 400px;
   position: relative;
   text-align: center;
+}
+
+.cork-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 32px;
+  padding-top: 10px;
 }
 
 @media (max-width: 640px) {
