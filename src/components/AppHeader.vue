@@ -5,9 +5,7 @@
       <RouterLink v-if="page !== 'archive'" to="/archive" class="back-link">
         🗂 {{ store.history.length > 0 ? `${store.history.length} Cases on File` : 'Case Archive' }}
       </RouterLink>
-      <span v-else class="back-link">
-        🗂 {{ store.history.length }} Cases on File
-      </span>
+      <span v-else class="back-link"> 🗂 {{ store.history.length }} Cases on File </span>
     </div>
 
     <template v-if="page !== 'not-found'">

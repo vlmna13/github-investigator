@@ -13,7 +13,9 @@
         <p class="chuck-label">— Consulting a higher authority —</p>
         <img src="https://api.chucknorris.io/img/avatar/chuck-norris.png" alt="Chuck Norris" />
         <p class="chuck-joke">{{ isLoading ? 'Consulting Chuck Norris...' : joke }}</p>
-        <button class="chuck-btn btn-red" :disabled="isLoading" @click="onFetchJoke">🥋 Ask Chuck Norris</button>
+        <button class="chuck-btn btn-red" :disabled="isLoading" @click="onFetchJoke">
+          🥋 Ask Chuck Norris
+        </button>
       </div>
     </div>
   </div>
@@ -36,7 +38,7 @@ const onFetchJoke = async () => {
       joke.value = "Chuck Norris doesn't have errors. Errors have Chuck Norris."
       return
     }
-    const data:ChuckJoke = await response.json()
+    const data: ChuckJoke = await response.json()
     joke.value = data.value
   } catch (error) {
     console.error('Failed to fetch joke:', error)
@@ -81,7 +83,6 @@ onMounted(() => onFetchJoke())
   line-height: 1;
 }
 
-
 h1 {
   font-family: 'IM Fell English', serif;
   font-size: 22px;
@@ -95,7 +96,6 @@ h1 {
   line-height: 1.6;
   margin-bottom: 28px;
 }
-
 
 .chuck-label {
   font-size: 10px;

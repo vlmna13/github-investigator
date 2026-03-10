@@ -24,7 +24,9 @@
               <dd class="field-value">{{ field.value }}</dd>
             </div>
           </dl>
-          <blockquote v-if="props.user.bio" class="bio-block serif-italic">"{{ props.user.bio }}"</blockquote>
+          <blockquote v-if="props.user.bio" class="bio-block serif-italic">
+            "{{ props.user.bio }}"
+          </blockquote>
           <blockquote v-else class="bio-block bio-empty serif-italic">
             "No statement provided. Suspect remains silent."
           </blockquote>
@@ -101,7 +103,6 @@ const fields = computed(() => [
   line-height: 1;
 }
 
-
 .profile-layout {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -134,7 +135,6 @@ img {
   display: block;
 }
 
-
 .field {
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -163,7 +163,6 @@ img {
 .bio-empty {
   opacity: 0.45;
 }
-
 
 .badge {
   font-size: 10px;
