@@ -15,7 +15,7 @@
       <div class="flex flex-col gap-2">
         <span class="evidence-number">evidence #{{ String(index + 1).padStart(3, '0') }}</span>
         <span class="evidence-name">{{ repo.name }}</span>
-        <span class="evidence-des">{{
+        <span class="evidence-des serif-italic">{{
           repo.description ?? 'No description. Evidence sealed.'
         }}</span>
       </div>
@@ -23,7 +23,7 @@
         <span v-if="repo.language" class="evidence-lang">{{ repo.language }}</span>
         <span v-else class="evidence-lang evidence-lang--unknown">Classified</span>
         <span class="evidence-star"> ⭐ {{ repo.stargazers_count }} witnesses </span>
-        <span class="evidence-weapon">{{ getWeapon(repo.language) }}</span>
+        <span class="evidence-weapon serif-italic">{{ getWeapon(repo.language) }}</span>
       </div>
     </a>
   </div>
@@ -82,7 +82,7 @@ const { getWeapon } = useInvestigator()
 }
 
 .evidence-number {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--ink-faded);
@@ -99,8 +99,6 @@ const { getWeapon } = useInvestigator()
 .evidence-des {
   font-size: 12px;
   color: var(--ink-faded);
-  font-style: italic;
-  font-family: 'IM Fell English', serif;
   line-height: 1.5;
   min-height: 36px;
 }
@@ -123,10 +121,17 @@ const { getWeapon } = useInvestigator()
 .evidence-weapon {
   font-size: 12px;
   color: var(--ink-faded);
-  font-style: italic;
-  font-family: 'IM Fell English', serif;
   width: 100%;
   padding: 10px;
   border-top: 1px dashed var(--paper-shadow);
+}
+
+@media (max-width: 480px) {
+  .evidence-header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 12px 16px;
+  }
 }
 </style>

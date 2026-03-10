@@ -11,7 +11,7 @@
           placeholder="Enter GitHub username..."
         />
       </div>
-      <button type="submit" :disabled="store.isLoading">
+      <button type="submit" class="btn-red" :disabled="store.isLoading">
         {{ store.isLoading ? 'Investigating...' : 'Investigate' }}
       </button>
     </form>
@@ -43,7 +43,7 @@ const onSearch = async () => {
 }
 
 .search-label {
-  color: #7a6535;
+  color: var(--gold);
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -80,33 +80,7 @@ const onSearch = async () => {
 }
 
 button {
-  background: var(--red);
-  color: var(--paper);
-  border: none;
-  cursor: pointer;
-  padding: 13px 22px;
-  font-family: 'Special Elite', cursive;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  box-shadow: 4px 4px 0 #5a0f0f;
-  transition: all 0.12s;
   white-space: nowrap;
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-button:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 #5a0f0f;
-}
-button:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 #5a0f0f;
 }
 
 .error-text {

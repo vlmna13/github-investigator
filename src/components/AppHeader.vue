@@ -1,18 +1,21 @@
 <template>
   <header class="container text-center py-10">
-    <div class="nav-links">
+    <div class="flex justify-between mb-5">
       <RouterLink v-if="page !== 'home'" to="/" class="back-link">← New Investigation</RouterLink>
       <RouterLink v-if="page !== 'archive'" to="/archive" class="back-link">
         🗂 {{ store.history.length > 0 ? `${store.history.length} Cases on File` : 'Case Archive' }}
       </RouterLink>
+      <span v-else class="back-link"> 🗂 {{ store.history.length }} Cases on File </span>
     </div>
 
-    <p class="header-address">221B Baker Street, London · Est. 1887</p>
-    <h1 class="header-title">{{ title }}</h1>
-    <p class="header-sub">{{ quote }}</p>
-    <div class="line">
-      <span>✦</span>
-    </div>
+    <template v-if="page !== 'not-found'">
+      <p class="header-address">221B Baker Street, London · Est. 1887</p>
+      <h1 class="header-title">{{ title }}</h1>
+      <p class="header-sub serif-italic">{{ quote }}</p>
+      <div class="line flex items-center gap-3.5">
+        <span>✦</span>
+      </div>
+    </template>
   </header>
 </template>
 
@@ -21,7 +24,7 @@ import { computed } from 'vue'
 import { useInvestigatorStore } from '@/stores/investigator'
 
 const props = defineProps<{
-  page?: 'home' | 'dossier' | 'archive'
+  page?: 'home' | 'dossier' | 'archive' | 'not-found'
 }>()
 
 const store = useInvestigatorStore()
@@ -41,7 +44,7 @@ const quote = computed(() => {
 
 <style scoped>
 .header-address {
-  color: #7a6535;
+  color: var(--gold);
   font-size: 0.75rem;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -59,25 +62,19 @@ const quote = computed(() => {
 }
 
 .header-sub {
-  font-family: 'IM Fell English', serif;
-  font-style: italic;
-  color: #7a6535;
+  color: var(--gold);
   font-size: 15px;
   letter-spacing: 1px;
 }
 
-.line {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  max-width: 420px;
-  margin: 18px auto;
+span {
+  color: var(--gold);
+  font-size: 16px;
 }
 
-span {
-  color: #7a6535;
-  font-size: 16px;
+.line {
+  max-width: 420px;
+  margin: 18px auto;
 }
 
 .line::before,
@@ -85,23 +82,16 @@ span {
   content: '';
   flex: 1;
   height: 1px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #7a6535, transparent);
-}
-
-.nav-links {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
 }
 
 .back-link {
-  color: #7a6535;
+  color: var(--gold);
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid #7a6535;
+  border: 1px solid var(--gold);
   padding: 6px 14px;
   transition: all 0.15s;
 }
@@ -109,5 +99,13 @@ span {
 .back-link:hover {
   color: #f0e2c0;
   border-color: #f0e2c0;
+}
+
+@media (max-width: 480px) {
+  .back-link {
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+  }
 }
 </style>

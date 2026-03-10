@@ -1,7 +1,7 @@
 <template>
-  <div class="dosier">
+  <div class="dossier">
     <p class="folder-tab">Classified Dossier</p>
-    <div class="profile-card">
+    <div class="profile-card paper-card">
       <div class="tape"></div>
       <div class="stamp">found</div>
       <p class="case-no">
@@ -18,17 +18,19 @@
           </figure>
         </a>
         <div>
-          <dl class="fields">
+          <dl class="flex flex-col">
             <div class="field" v-for="field in fields" :key="field.label">
               <dt class="field-label">{{ field.label }}</dt>
               <dd class="field-value">{{ field.value }}</dd>
             </div>
           </dl>
-          <blockquote v-if="props.user.bio" class="bio-block">"{{ props.user.bio }}"</blockquote>
-          <blockquote v-else class="bio-block bio-empty">
+          <blockquote v-if="props.user.bio" class="bio-block serif-italic">
+            "{{ props.user.bio }}"
+          </blockquote>
+          <blockquote v-else class="bio-block bio-empty serif-italic">
             "No statement provided. Suspect remains silent."
           </blockquote>
-          <div class="badges">
+          <div class="flex flex-wrap gap-2 mt-3.5">
             <span v-for="badge in getBadges(props.user)" :key="badge" class="badge">
               {{ badge }}
             </span>
@@ -65,7 +67,7 @@ const fields = computed(() => [
   max-width: 860px;
   margin: 0 auto;
   padding: 0 20px 80px;
-  animation: dossierIn 05s ease;
+  animation: dossierIn 0.5s ease;
 }
 
 .folder-tab {
@@ -81,32 +83,8 @@ const fields = computed(() => [
 }
 
 .profile-card {
-  background: var(--paper);
   padding: 34px 36px 30px;
-  position: relative;
-  box-shadow:
-    6px 6px 0 var(--paper-shadow),
-    14px 14px 0 rgba(0, 0, 0, 0.35);
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 27px,
-    rgba(44, 24, 16, 0.055) 27px,
-    rgba(44, 24, 16, 0.055) 28px
-  );
   margin-bottom: 2px;
-}
-
-.tape {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 76px;
-  height: 20px;
-  background: var(--tape);
-  border-left: 1px solid rgba(190, 155, 40, 0.3);
-  border-right: 1px solid rgba(190, 155, 40, 0.3);
 }
 
 .stamp {
@@ -125,16 +103,6 @@ const fields = computed(() => [
   line-height: 1;
 }
 
-.case-no {
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--ink-faded);
-  text-transform: uppercase;
-  border-bottom: 1px dashed var(--paper-shadow);
-  padding-bottom: 12px;
-  margin-bottom: 22px;
-}
-
 .profile-layout {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -142,7 +110,7 @@ const fields = computed(() => [
 }
 
 .photo-label {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--ink-faded);
@@ -167,12 +135,6 @@ img {
   display: block;
 }
 
-.fields {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
 .field {
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -190,8 +152,7 @@ img {
 
 .bio-block {
   margin-top: 14px;
-  font-family: 'IM Fell English', serif;
-  font-style: italic;
+  margin-bottom: 14px;
   color: var(--ink-faded);
   font-size: 13px;
   line-height: 1.6;
@@ -201,14 +162,6 @@ img {
 
 .bio-empty {
   opacity: 0.45;
-  font-style: italic;
-}
-
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
 }
 
 .badge {
@@ -218,5 +171,38 @@ img {
   color: var(--red);
   border: 1px solid var(--red);
   padding: 3px 8px;
+}
+
+@media (max-width: 640px) {
+  .dossier {
+    padding: 0 12px 48px;
+  }
+
+  .profile-card {
+    padding: 24px 20px 20px;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-frame {
+    margin: 0 auto;
+    width: fit-content;
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .field {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .field-label {
+    margin-bottom: 1px;
+  }
 }
 </style>
